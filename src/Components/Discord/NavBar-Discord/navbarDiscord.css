@@ -1,0 +1,64 @@
+.discord-navbar {
+  position: absolute;
+  top: 0;
+  left: 4.5%;
+  width: 100%;
+  display: flex;
+  background-color: var(--first);
+  justify-content: flex-start;
+  color: white;
+  font-size: 14px;
+  padding-left: 20px;
+  padding-bottom: 9px;
+  padding-top: 12px;
+}
+.fa-icons-navBar {
+  margin: 0px 6px;
+}
+.discord-navbar-left {
+  display: flex;
+
+  justify-content: flex-start;
+  width: 50%;
+  left: 0;
+}
+.navbar-items {
+  margin: 05px 10px;
+  width: 150px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: var(--second);
+}
+
+.profile-show {
+  margin-left: 400px;
+  max-width: 300px;
+}
+
+.mini {
+  margin-left: 5px;
+  padding: 2px;
+  font-size: 20px;
+  display: inline-block;
+  position: relative;
+  top: -8px;
+  right: -4px;
+  width: 28px;
+  height: 28px;
+  text-align: center;
+  border-radius: 4px;
+  margin-top: 2px;
+}
+.mini:hover {
+  background-color: thistle;
+}
+
+.profile-container-discord{
+  min-width: 200px;
+  margin-left: 380px;
+  margin-bottom: 40px !important;
+}

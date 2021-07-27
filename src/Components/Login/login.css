@@ -1,0 +1,61 @@
+.login-container {
+  position: absolute;
+  bottom: 0px;
+  top: 0px;
+  width: 100%;
+  background-color: var(--second);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-inner-container {
+  color: white;
+  display: flex;
+  font-size: 1.25rem;
+  margin-top: 10px;
+  margin-bottom: 60px;
+  background-color: var(--first);
+  width: 500px;
+  justify-content: space-evenly;
+  cursor: pointer;
+  border-radius: 10px;
+  z-index: 200;
+}
+
+.login-inner-container > div > img {
+  height: 100%;
+  width: 150%;
+  object-fit: contain;
+  margin-top: 5px;
+}
+
+.waves-container {
+  position: absolute;
+  top: 85%;
+  height: 200px;
+  width: 100%;
+}
+
+#wave1,
+#wave2 {
+  margin-top: 50px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+}
+.fa-spinner {
+ 
+  animation: spinner 2.5s linear infinite;
+}
+
+@keyframes spinner {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

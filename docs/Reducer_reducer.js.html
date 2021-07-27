@@ -1,0 +1,339 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Reducer/reducer.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    API Documentation
+                </a>
+                
+                <div class="dropdown is-hoverable is-right">
+                    <a class="dropdown-trigger link">
+                        Tutorials
+                        <i class="fas fa-chevron-down fa-xs"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-content">
+                        
+                            <a class="dropdown-item" href="tutorial-Invite-Joiner.html">
+                                Invite-Joiner
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-Link-Opener.html">
+                                Link-Opener
+                            </a>
+                        
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-Initial-State.html">Initial-State</a></li><li><a href="module-Reducer.html">Reducer</a></li><li><a href="module-Redux-action.html">Redux-action</a></li><li><a href="module-Redux-contants.html">Redux-contants</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>Reducer/reducer.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Reducer module
+ * @module Reducer
+ */
+
+/**
+ * @file reducer.js file determines changes to the global state
+ * @author Vibhor
+ */
+
+import { initialState } from "./initialState";
+import actionType from "../Actions/actionTypes";
+
+/**
+ * Toggle Safe Mode Action
+ * @param {object} state - Global state with default initialization of initialState
+ * @param {object} action - Object with action type to be triggered along with the respective payload to be processed.
+ * @returns {Object} - Object with new global state.
+ */
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case actionType.TOGGLE_SAFE_MODE:
+      return { ...state, safeMode: action.payload === "on" ? "off" : "on" };
+
+    case actionType.ADD_CHANNEL_ID_LINK_OPENER:
+      return {
+        ...state,
+        channelIdListLinkOpener: [
+          ...state.channelIdListLinkOpener,
+          action.payload,
+        ],
+      };
+
+    case actionType.REMOVE_CHANNEL_ID_LINK_OPENER: {
+      let newList = state.channelIdListLinkOpener.filter(
+        (id) => id !== action.payload
+      );
+      return { ...state, channelIdListLinkOpener: newList };
+    }
+
+    case actionType.ADD_CHANNEL_ID_INVITE_JOINER:
+      return {
+        ...state,
+        channelIdListInviteJoiner: [
+          ...state.channelIdListInviteJoiner,
+          action.payload,
+        ],
+      };
+
+    case actionType.REMOVE_CHANNEL_ID_INVITE_JOINER: {
+      let newList = state.channelIdListInviteJoiner.filter(
+        (id) => id !== action.payload
+      );
+      return { ...state, channelIdListInviteJoiner: newList };
+    }
+
+    case actionType.KEYWORD_TWITTER: {
+      const { addOrDelete, keyword } = action.payload;
+      let list;
+
+      if (addOrDelete) {
+        // true means add
+        list = state.keywords_twitter;
+        list = [...list, keyword];
+      } else list = state.keywords_twitter.filter((key) => key !== keyword);
+
+      return { ...state, keywords_twitter: list };
+    }
+
+    case actionType.KEYWORD_DISCORD: {
+      const { addOrDelete, keyword } = action.payload;
+      let list;
+
+      if (addOrDelete) {
+        // true means add
+        list = state.keywords_discord;
+        list = [...list, keyword];
+      } //delete
+      else list = state.keywords_discord.filter((key) => key !== keyword);
+
+      return { ...state, keywords_discord: list };
+    }
+
+    case actionType.SET_DELAY: {
+      return { ...state, delay: action.payload };
+    }
+
+    case actionType.TOGGLE_LINK_OPENER: {
+      let val = state.start.linkOpener;
+      // console.log('val = ',val);
+      return { ...state, start: { ...state.start, linkOpener: !val } };
+    }
+
+    case actionType.TOGGLE_INVITE_JOINER: {
+      let val = state.start.inviteJoiner;
+      return { ...state, start: { ...state.start, inviteJoiner: !val } };
+    }
+
+    case actionType.HANDLE_CHECKBOX: {
+      const boxType = action.payload;
+      const val = !state.options.boxType;
+
+      if (boxType === "sound")
+        return { ...state, options: { ...state.options, sound: val } };
+      else if (boxType === "invite")
+        return { ...state, options: { ...state.options, invite: val } };
+      else if (boxType === "twitter")
+        return { ...state, options: { ...state.options, twitter: val } };
+    }
+    case actionType.SET_URL_APPENDER:
+      return { ...state, urlAppenderURL: action.payload };
+
+    case actionType.TOGGLE_URL_APPENDER:
+      return { ...state, urlAppenderEnable: !state.urlAppenderEnable };
+
+    case actionType.CREATE_ACCOUNT: {
+      let newAccount = {
+        name: action.payload.name,
+        type: action.payload.type,
+        value: action.payload.value,
+        id: state.monitorTokens.length + 1,
+      };
+      return { ...state, monitorTokens: [...state.monitorTokens, newAccount] };
+    }
+    case actionType.EDIT_ACCOUNT: {
+      const newList = state.monitorTokens.map((token) =>
+        token.id === action.payload.id
+          ? {
+              ...token,
+              name: action.payload.name,
+              type: action.payload.type,
+              value: action.payload.value,
+              id: action.payload.id,
+            }
+          : token
+      );
+      return { ...state, monitorTokens: newList };
+    }
+
+    case actionType.DELETE_ACCOUNT: {
+      //console.log("id to be removed ", action.payload);
+      let newMonitorTokenList = state.monitorTokens.filter(
+        (token) => token.id !== action.payload
+      );
+      return { ...state, monitorTokens: newMonitorTokenList };
+    }
+
+    case actionType.SET_WEBHOOOK:
+      return { ...state, webhook: action.payload };
+
+    case actionType.TOGGLE_BUTTONS_WEBHOOK: {
+      let webHookToggles = state.webHookToggles;
+      webHookToggles[action.payload] = !webHookToggles[action.payload];
+      console.log(webHookToggles);
+      return { ...state, webHookToggles };
+    }
+
+    case actionType.SET_BACKGROUND_ANIMATION:
+      return { ...state, backgroundAnimations: !state.backgroundAnimations };
+
+    case actionType.CREATE_CHROME_USER_DISCORD: {
+      let userlist = state.chromeUsersDiscord;
+      let newUser = {
+        id: userlist.length,
+        name: action.payload,
+        toggleOnOff: false,
+      };
+      userlist = [...userlist, newUser];
+      return { ...state, chromeUsersDiscord: userlist };
+    }
+
+    case actionType.DELETE_CHROME_USER_DISCORD: {
+      let newUsers = state.chromeUsersDiscord.filter(
+        (user) => user.id !== action.payload
+      );
+      return { ...state, chromeUsersDiscord: newUsers };
+    }
+    case actionType.SELECT_CHROME_PROFILE: {
+      let selectUser = "";
+      for (let user of state.chromeUsersDiscord) {
+        if (user.id === action.payload) {
+          selectUser = user;
+          break;
+        }
+      }
+      return {
+        ...state,
+        selectedChromeProfiles: [...state.selectedChromeProfiles, selectUser],
+      };
+    }
+
+    case actionType.UNSELECT_CHROME_PROFILE: {
+      let newList = state.selectedChromeProfiles.filter(
+        (user) => user.id !== action.payload
+      );
+      return { ...state, selectedChromeProfiles: newList };
+    }
+
+    default:
+      return state;
+  }
+};
+export { reducer };
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+.add-button-plus {
+  width: 38px;
+  font-size: 20px;
+  background-color: aqua;
+  height: 38px;
+  background-color: var(--fourth);
+  color: #e4dddb;
+  margin-bottom: 3px;
+  border: 2px solid greenyellow;
+  cursor: pointer;
+  padding-bottom: 10px;
+}
+
+.input-field-user {
+  width: 17.6rem;
+  background-color: #4f4653;
+  border-radius: 3px;
+  margin-left: 14px;
+  height: 38px;
+  color: #4f4653;
+  font-size: 14px;
+}
+
+.row-container-user {
+  display: flex;
+}
+.user-name {
+  margin-left: 4rem;
+}
+
+.user-list {
+  background-color: var(--second);
+  margin-top: 12px;
+  width: 21rem;
+  overflow: auto;
+  padding: 8px;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 15px 15px var(--fourth);
+}
+
+.delete {
+  background-color: var(--fourth);
+  margin-left: auto;
+  margin-bottom: 10px;
+  width: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background-color: greenyellow;
+  color: black;
+}
+.row-container-user-2 {
+  display: flex;
+  margin-bottom: 21px;
+  align-items: center;
+}
+.row-container-user-2 > input {
+  margin-top: 10px;
+}

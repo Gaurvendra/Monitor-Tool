@@ -1,0 +1,40 @@
+.userProfileContainer{
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    width: 40vw;
+    z-index: 5000;
+    color:white;
+    height: 25vw;
+    background-color: var(--first);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;    
+    padding-right: 20px;
+    box-shadow:black 4px 5px 20px ;
+    border-radius: 10px;
+    padding-bottom: 20px;
+    white-space: pre-line;
+}
+
+.userProfileContainer > div{
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    padding-top: 20px;
+}
+
+.userProfileContainer> div > button{
+    background-color: #dc3545 !important;
+    height: 20px;
+    width: 22px;
+    font-size: 10px;
+}
+
+.userProfileContainer > img {
+    width:12%;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,46 @@
+/*--------- chrome user---------------*/
+.chromeUser-top {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10px;
+}
+.chromeUsers {
+  margin-top: 10px;
+  height: auto;
+}
+.table-row {
+  background-color: #4f4653;
+  height: 60px;
+  margin: 10px 5px;
+  padding: 10px 10px;
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.table-row > img {
+
+  max-width:100%;
+  max-height:100%;
+  border-radius: 20px;
+}
+
+.over {
+  overflow-y: scroll;
+}
+
+.over::-webkit-scrollbar {
+  width: 8px;
+}
+
+.over::-webkit-scrollbar-thumb {
+  background: #4f4653;
+  border-radius: 8px;
+}
+.over::-webkit-scrollbar-track {
+  background: #84768a;
+
+  border-radius: 8px;
+}

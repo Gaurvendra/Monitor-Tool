@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Redux/Reducer/reducer.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Redux/Reducer/reducer.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Reducer module
+ * @module Reducer
+ */
+
+/**
+ * @file reducer.js file determines changes to the global state
+ * @author Vibhor
+ */
+
+import { initialState } from "./initialState";
+import actionType from "../Actions/actionTypes";
+
+/**
+ * Toggle Safe Mode Action
+ * @param {object} state - Global state with default initialization of initialState
+ * @param {object} action - Object with action type to be triggered along with the respective payload to be processed.
+ * @returns {Object} - Object with new global state.
+ */
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case actionType.TOGGLE_SAFE_MODE:
+      return { ...state, safeMode: action.payload === "on" ? "off" : "on" };
+
+    case actionType.ADD_CHANNEL_ID_LINK_OPENER:
+      return {
+        ...state,
+        channelIdListLinkOpener: [
+          ...state.channelIdListLinkOpener,
+          action.payload,
+        ],
+      };
+
+    case actionType.REMOVE_CHANNEL_ID_LINK_OPENER: {
+      let newList = state.channelIdListLinkOpener.filter(
+        (id) => id !== action.payload
+      );
+      return { ...state, channelIdListLinkOpener: newList };
+    }
+
+    case actionType.ADD_CHANNEL_ID_INVITE_JOINER:
+      return {
+        ...state,
+        channelIdListInviteJoiner: [
+          ...state.channelIdListInviteJoiner,
+          action.payload,
+        ],
+      };
+
+    case actionType.REMOVE_CHANNEL_ID_INVITE_JOINER: {
+      let newList = state.channelIdListInviteJoiner.filter(
+        (id) => id !== action.payload
+      );
+      return { ...state, channelIdListInviteJoiner: newList };
+    }
+
+    case actionType.KEYWORD_TWITTER: {
+      const { addOrDelete, keyword } = action.payload;
+      let list;
+
+      if (addOrDelete) {
+        // true means add
+        list = state.keywords_twitter;
+        list = [...list, keyword];
+      } else list = state.keywords_twitter.filter((key) => key !== keyword);
+
+      return { ...state, keywords_twitter: list };
+    }
+
+    case actionType.KEYWORD_DISCORD: {
+      const { addOrDelete, keyword } = action.payload;
+      let list;
+
+      if (addOrDelete) {
+        // true means add
+        list = state.keywords_discord;
+        list = [...list, keyword];
+      } //delete
+      else list = state.keywords_discord.filter((key) => key !== keyword);
+
+      return { ...state, keywords_discord: list };
+    }
+
+    case actionType.SET_DELAY: {
+      return { ...state, delay: action.payload };
+    }
+
+    case actionType.TOGGLE_LINK_OPENER: {
+      let val = state.start.linkOpener;
+      // console.log('val = ',val);
+      return { ...state, start: { ...state.start, linkOpener: !val } };
+    }
+
+    case actionType.TOGGLE_INVITE_JOINER: {
+      let val = state.start.inviteJoiner;
+      return { ...state, start: { ...state.start, inviteJoiner: !val } };
+    }
+
+    case actionType.HANDLE_CHECKBOX: {
+      const boxType = action.payload;
+      const val = !state.options.boxType;
+
+      if (boxType === "sound")
+        return { ...state, options: { ...state.options, sound: val } };
+      else if (boxType === "invite")
+        return { ...state, options: { ...state.options, invite: val } };
+      else if (boxType === "twitter")
+        return { ...state, options: { ...state.options, twitter: val } };
+    }
+    case actionType.SET_URL_APPENDER:
+      return { ...state, urlAppenderURL: action.payload };
+
+    case actionType.TOGGLE_URL_APPENDER:
+      return { ...state, urlAppenderEnable: !state.urlAppenderEnable };
+
+    case actionType.CREATE_ACCOUNT: {
+      let newAccount = {
+        name: action.payload.name,
+        type: action.payload.type,
+        value: action.payload.value,
+        id: state.monitorTokens.length + 1,
+      };
+      return { ...state, monitorTokens: [...state.monitorTokens, newAccount] };
+    }
+    case actionType.EDIT_ACCOUNT: {
+      const newList = state.monitorTokens.map((token) =>
+        token.id === action.payload.id
+          ? {
+              ...token,
+              name: action.payload.name,
+              type: action.payload.type,
+              value: action.payload.value,
+              id: action.payload.id,
+            }
+          : token
+      );
+      return { ...state, monitorTokens: newList };
+    }
+
+    case actionType.DELETE_ACCOUNT: {
+      //console.log("id to be removed ", action.payload);
+      let newMonitorTokenList = state.monitorTokens.filter(
+        (token) => token.id !== action.payload
+      );
+      return { ...state, monitorTokens: newMonitorTokenList };
+    }
+
+    case actionType.SET_WEBHOOOK:
+      return { ...state, webhook: action.payload };
+
+    case actionType.TOGGLE_BUTTONS_WEBHOOK: {
+      let webHookToggles = state.webHookToggles;
+      webHookToggles[action.payload] = !webHookToggles[action.payload];
+      console.log(webHookToggles);
+      return { ...state, webHookToggles };
+    }
+
+    case actionType.SET_BACKGROUND_ANIMATION:
+      return { ...state, backgroundAnimations: !state.backgroundAnimations };
+
+    case actionType.CREATE_CHROME_USER_DISCORD: {
+      let userlist = state.chromeUsersDiscord;
+      let newUser = {
+        id: userlist.length,
+        name: action.payload,
+        toggleOnOff: false,
+      };
+      userlist = [...userlist, newUser];
+      return { ...state, chromeUsersDiscord: userlist };
+    }
+
+    case actionType.DELETE_CHROME_USER_DISCORD: {
+      let newUsers = state.chromeUsersDiscord.filter(
+        (user) => user.id !== action.payload
+      );
+      return { ...state, chromeUsersDiscord: newUsers };
+    }
+    case actionType.SELECT_CHROME_PROFILE: {
+      let selectUser = "";
+      for (let user of state.chromeUsersDiscord) {
+        if (user.id === action.payload) {
+          selectUser = user;
+          break;
+        }
+      }
+      return {
+        ...state,
+        selectedChromeProfiles: [...state.selectedChromeProfiles, selectUser],
+      };
+    }
+
+    case actionType.UNSELECT_CHROME_PROFILE: {
+      let newList = state.selectedChromeProfiles.filter(
+        (user) => user.id !== action.payload
+      );
+      return { ...state, selectedChromeProfiles: newList };
+    }
+
+    default:
+      return state;
+  }
+};
+export { reducer };
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Koders</a></h2><h3>Modules</h3><ul><li><a href="module-Initial-State.html">Initial-State</a></li><li><a href="module-Reducer.html">Reducer</a></li><li><a href="module-Redux-action.html">Redux-action</a></li><li><a href="module-Redux-contants.html">Redux-contants</a></li></ul><h3>Namespaces</h3><ul><li><a href="Components.html">Components</a></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-Invite-Joiner.html">Invite-Joiner</a></li><li><a href="tutorial-Link-Opener.html">Link-Opener</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Mon Jun 28 2021 15:24:39 GMT+0530 (India Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

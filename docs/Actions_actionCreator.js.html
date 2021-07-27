@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Actions/actionCreator.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    API Documentation
+                </a>
+                
+                <div class="dropdown is-hoverable is-right">
+                    <a class="dropdown-trigger link">
+                        Tutorials
+                        <i class="fas fa-chevron-down fa-xs"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-content">
+                        
+                            <a class="dropdown-item" href="tutorial-Invite-Joiner.html">
+                                Invite-Joiner
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-Link-Opener.html">
+                                Link-Opener
+                            </a>
+                        
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-Initial-State.html">Initial-State</a></li><li><a href="module-Reducer.html">Reducer</a></li><li><a href="module-Redux-action.html">Redux-action</a></li><li><a href="module-Redux-contants.html">Redux-contants</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>Actions/actionCreator.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Redux Action module
+ * @module Redux-action
+ */
+
+/**
+ * @file actionCreator.js contains all the redux actions
+ * @author Vibhor
+ */
+
+/**
+ * Toggle Safe Mode Action
+ * @param {object} mode - payload
+ * @returns {Object} - Object with payload
+ */
+export const toggleSafeMode = (mode) => ({
+  type: "TOGGLE_SAFE_MODE",
+  payload: mode,
+});
+
+/**
+ * Add Channel Id Link Opener Action
+ * @param {} id - payload
+ * @returns {object} - Object with payload
+ */
+export const addChannelIdLinkOpener = (id) => ({
+  type: "ADD_CHANNEL_ID_LINK_OPENER",
+  payload: id,
+});
+
+/**
+ * Remove Channel Id From List Link Opener Action
+ * @param {Object} id - payload
+ * @returns {Object} - Object with payload
+ */
+
+export const removeChannelIdFromListLinkOpener = (id) => ({
+  type: "REMOVE_CHANNEL_ID_LINK_OPENER",
+  payload: id,
+});
+
+/**
+ * Toggle Link Opener Action
+ * @returns {Object} - Object
+ */
+export const toggleLinkOpener = () => ({ type: "TOGGLE_LINK_OPENER" });
+
+/**
+ * Set URL Appender Action
+ * @param {Object} url - payload
+ * @returns {Object} - Object with payload
+ */
+export const setURLAppender = (url) => ({
+  type: "SET_URL_APPENDER",
+  payload: url,
+});
+
+/**
+ * Toggle URL Appender Action
+ * @param {Object} url - payload
+ * @returns {Object} - Object with payload
+ */
+export const toggleURLAppender = (url) => ({ type: "TOGGLE_URL_APPENDER" });
+
+/**
+ * Add Channel Id List Invite Joiner Action
+ * @param {Object} id - payload
+ * @returns {Object} - Object with payload
+ */
+export const addChannelIdListInviteJoiner = (id) => ({
+  type: "ADD_CHANNEL_ID_INVITE_JOINER",
+  payload: id,
+});
+
+/**
+ * Remove Channel Id From List Invite Joiner Action
+ * @param {Object} id - payload
+ * @returns {Object} - Object with payload
+ */
+
+export const removeChannelIdFromListInviteJoiner = (id) => ({
+  type: "REMOVE_CHANNEL_ID_INVITE_JOINER",
+  payload: id,
+});
+
+/**
+ * Toggle Invite Joiner Action
+ * @returns {Object} - Object with payload
+ */
+export const toggleInviteJoiner = () => ({ type: "TOGGLE_INVITE_JOINER" });
+
+/**
+ * Keyword Twitter Action
+ * @param {Object} addOrDelete - payload
+ * @param {Object} keyword - payload
+ * @returns {Object} - Object with payload
+ */
+export const keywordTwitter = (addOrDelete, keyword) => ({
+  type: "KEYWORD_TWITTER",
+  payload: { addOrDelete, keyword },
+});
+
+/**
+ * Keyword Discord Action
+ * @param {Object} addOrDelete - payload
+ * @param {Object} keyword - payload
+ * @returns {Object} - Object with payload
+ */
+export const keywordDiscord = (addOrDelete, keyword) => ({
+  type: "KEYWORD_DISCORD",
+  payload: { addOrDelete, keyword },
+});
+
+/**
+ * Set Delay Action
+ * @param {Object} delay - payload
+ * @returns {Object} - Object with payload
+ */
+export const setDelay = (delay) => ({ type: "SET_DELAY", payload: delay });
+
+/**
+ * Handle Checkbox Action
+ * @param {Object} boxType - payload
+ * @returns {Object} - Object with payload
+ */
+export const handleCheckbox = (boxType) => ({
+  type: "HANDLE_CHECKBOX",
+  payload: boxType,
+});
+
+/**
+ * create Account Action
+ * @param {string} name - payload
+ * @param {string} type - payload
+ * @param {number} name - payload
+ * @returns {Object} - Object with payload
+ */
+export const createAccount = (name, type, value) => ({
+  type: "CREATE_ACCOUNT",
+  payload: { name, type, value },
+});
+export const editAccount = (name, type, value, id) => ({
+  type: "EDIT_ACCOUNT",
+  payload: { name, type, value, id },
+});
+export const deleteAccount = (id) => ({ type: "DELETE_ACCOUNT", payload: id });
+
+export const setWebHook = (hook) => ({ type: "SET_WEBHOOK", payload: hook });
+export const toggleWebHookButtons = (index) => ({
+  type: "TOGGLE_BUTTONS_WEBHOOK",
+  payload: index,
+});
+
+export const setBGAnimation = () => ({ type: "SET_BACKGROUND_ANIMATION" });
+
+export const createChromeUserDiscord = (name) => ({
+  type: "CREATE_CHROME_USER_DISCORD",
+  payload: name,
+});
+export const deleteChromeUserDiscord = (id) => ({
+  type: "DELETE_CHROME_USER_DISCORD",
+  payload: id,
+});
+
+export const selectChromeProfile = (id) => ({
+  type: "SELECT_CHROME_PROFILE",
+  payload: id,
+});
+export const unSelectChromeProfile = (id) => ({
+  type: "UNSELECT_CHROME_PROFILE",
+  payload: id,
+});
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+</body>
+</html>

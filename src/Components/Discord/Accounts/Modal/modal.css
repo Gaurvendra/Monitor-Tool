@@ -1,0 +1,68 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+.modal-main {
+  position: fixed;
+  background: white;
+  width: 55%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  background-color: #39303dbd;
+  color: azure;
+}
+.create-profile-modal-btns-div{
+  width:400px; 
+  float:right;
+  margin: 0 30px 18px 10px;
+  padding-left: 140px;
+}
+.modal-main > div > button{
+  width: 35%;
+  height: 40px;
+}
+
+.innerContainerModal {
+  padding: 50px 50px;
+  margin-right: 30px;
+}
+
+.display-yes {
+  display: block;
+}
+
+.modal-item-1 {
+  display: inline-block;
+  display: flex;
+  justify-content: space-evenly;
+}
+select,
+input {
+  margin: 0 10px;
+}
+.modal-item2 {
+  padding-left: 60px;
+}
+.modal-item2 > input {
+  margin-left: 60px;
+  width: 60%;
+}
+div > button {
+  margin-right: 10px;
+}
+.field {
+  background-color: inherit;
+  color: aliceblue;
+}
+.field:focus {
+  background-color: inherit;
+  color: aliceblue;
+}
+

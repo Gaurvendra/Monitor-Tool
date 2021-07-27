@@ -1,0 +1,19 @@
+.row-container-tweets {
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+  width: 23rem;
+}
+.clear-button {
+  margin-left: 190px;
+  background-color: #dc3545 !important;
+  color: #fff;
+  height: auto;
+  padding-top: 5px;
+  float: right;
+  margin-bottom: 0;
+}
+.featured-tweet-container{
+  width: 92%;
+  z-index: 2000;
+}

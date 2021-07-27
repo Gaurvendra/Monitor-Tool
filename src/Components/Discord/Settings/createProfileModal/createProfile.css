@@ -1,0 +1,25 @@
+.modal-container {
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  width: 40%;
+  height: auto;
+  background-color: #4f4653;
+  padding: 20px 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  color: white;
+  z-index: 500;
+  border-radius: 10px;
+}
+.modal-container > input {
+  width: 100%;
+  position: relative;
+  margin-left: 0px;
+  height: 30px;
+}
+.create-profile-btn{
+  width: 80px;
+  height: 40px;
+  border-radius: 10%;
+  border: none;
+}

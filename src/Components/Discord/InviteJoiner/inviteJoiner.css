@@ -1,0 +1,85 @@
+.inviteJoiner-wrapper-discord{
+    
+    position: absolute;
+    top: 6.5%;
+    background-color: var(--second);
+    display: flex;
+    color:var(--first);
+    width: 100%;
+    color:white;
+    display: flex;
+    margin-top: 20px;
+    margin-left:-25px;
+}
+
+.leftPane-invitejoiner-discord{
+    z-index: 200;
+}
+
+.leftPane-invitejoiner-discord > div{
+    display: flex;
+    margin-top: 15px;
+    margin-left: 100px;
+    margin-bottom: 30px;
+}
+.leftPane-invitejoiner-discord > div > div{
+    margin-right: 40px;
+}
+.leftPane-invitejoiner-discord > div > div > select{
+    width:300px;
+    background-color: var(--fourth);
+    border: none;
+    height: 45px;
+    margin-right: -15px;
+    margin-top: 10px;
+    padding: 0 12px;
+    border-radius: 8px;
+    color:grey;
+    font-size: 14px;
+}
+
+.delay-discord-inviteJoiner{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    
+}
+
+.delay-discord-inviteJoiner>input{
+    width:20%;
+    margin-left: 0px;
+    height: 45px !important;
+}
+.delay-discord-inviteJoiner>div{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    
+}
+.button-discord-inviteJoiner{
+    width: 170px;
+    height: 50px;
+}
+.input-discord-inviteJoiner{
+    width: 170px;
+    height: 45px !important;
+}
+
+.delay-discord-inviteJoiner>div>button{
+    margin-right: 30px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    height: 40px;
+    
+}
+.toggle-inviteJoiner-discord{
+    margin-right: 100px;
+    float: right;
+    z-index: 2000 !important;
+    position: absolute;
+    bottom:25px;
+    left:47%;
+    height: 40px;
+    padding-right: 8px;
+}
+

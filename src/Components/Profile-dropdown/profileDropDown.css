@@ -1,0 +1,45 @@
+.dropdown {
+  background-color: var(--second);
+  position: relative;
+  display: inline-block;
+  margin-top: 3px;
+  max-height: 55px;
+  border-radius: 12px;
+  max-width: fit-content;
+  width: 200px;
+  z-index: 4000 !important;
+  max-height: 40px;
+  padding-top: 10px;
+}
+.dropbtn {
+  height: 20px;
+  color: white;
+  font-size: 18px;
+  margin-bottom: 10px;
+  border: none;
+  z-index: inherit;
+  padding-left: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  cursor: pointer;
+  position: relative;
+  
+}
+.dropbtn > img {
+  width: 15%;
+  border-radius: 10px;
+}
+
+.dropdown-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-left: 3rem;
+  z-index: 9999 !important;
+}
+.dropdown-content > button {
+  width: 80%;
+  height: 25px;
+  margin-top: 5px;
+}

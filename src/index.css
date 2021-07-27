@@ -1,0 +1,44 @@
+:root {
+  --first: #39303d;
+  --second: #4f4653;
+  --third: #4f4653;
+  --fourth: #3a313d;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #4f4653 !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+:root {
+  --first: #39303d;
+  --second: #4f4653;
+  --third: #4f4653;
+  --fourth: #3a313d;
+}
+html,
+body {
+  background-color: var(--second);
+  max-width: 100%;
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
+}
+
+a {
+  text-decoration: none !important;
+}
+input {
+  padding-left: 10px;
+}

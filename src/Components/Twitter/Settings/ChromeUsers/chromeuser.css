@@ -1,0 +1,8 @@
+.row-container-chrome {
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+  margin-left: 15px;
+  width: 23rem;
+}
+

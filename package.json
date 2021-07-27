@@ -1,0 +1,77 @@
+{
+  "name": "crystyl-kompanion",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": "http://localhost:3000/",
+  "main": "public/electron/main.js",
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "axios": "^0.21.1",
+    "better-docs": "^2.3.2",
+    "bootstrap": "^4.6.0",
+    "custom-electron-titlebar": "^3.2.7",
+    "discord-rich-presence": "0.0.8",
+    "discord.js": "^12.5.3",
+    "font-awesome": "^4.7.0",
+    "intersection-observer": "^0.12.0",
+    "jimp": "^0.16.1",
+    "jsdoc": "^3.6.7",
+    "jsonwebtoken": "^8.5.1",
+    "open": "^8.2.1",
+    "opn": "^6.0.0",
+    "puppeteer": "^10.1.0",
+    "qrcode-reader": "^1.0.4",
+    "react": "^17.0.2",
+    "react-awesome-reveal": "^3.8.1",
+    "react-bootstrap": "^1.6.1",
+    "react-dom": "^17.0.2",
+    "react-dropdown": "^1.9.2",
+    "react-fontawesome": "^1.7.1",
+    "react-modal": "^3.14.3",
+    "react-redux": "^7.2.4",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^4.0.1",
+    "react-toastify": "^7.0.4",
+    "react-wavify": "^1.5.2",
+    "redux": "^4.1.0",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.3.0",
+    "socket.io-client": "^4.1.3",
+    "twit": "^2.2.11",
+    "web-vitals": "^1.0.1",
+    "ws": "^7.5.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "set USER=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc2NjMwNzYxMTY4MjUzNzQ4MyIsInVzZXJuYW1lIjoiR2F1cnZlbmRyYSIsImF2YXRhciI6Imh0dHBzOi8vY2RuLmRpc2NvcmRhcHAuY29tL2F2YXRhcnMvNzY2MzA3NjExNjgyNTM3NDgzLzYyZWNiYzJkMWJjNThmNTNhZDA5ZTU5YmEyMzRkODI0LnBuZyIsImRpc2NyaW1pbmF0b3IiOiIzMDIzIiwicHVibGljX2ZsYWdzIjowLCJmbGFncyI6MCwiYmFubmVyIjpudWxsLCJiYW5uZXJfY29sb3IiOm51bGwsImFjY2VudF9jb2xvciI6bnVsbCwibG9jYWxlIjoiZW4tVVMiLCJtZmFfZW5hYmxlZCI6ZmFsc2UsInByZW1pdW1fdHlwZSI6MiwiZW1haWwiOiJnYXVydmVuZHJhMTkwNzIwMDFuQGdtYWlsLmNvbSIsInZlcmlmaWVkIjp0cnVlLCJqb2luZWRfYXQiOiIyMDIxLTAxLTIyVDE3OjEwOjUzLjM3NTAwMCswMDowMCIsInJvbGVzIjpbIkFkbWluIl0sImlhdCI6MTYyNjk3NTI1M30.Uds1-YMkVoz5_J-kqOOpeRWWhnSy_k3FNjsH2bXljlI &&  react-scripts test",
+    "eject": "react-scripts eject",
+    "dev": "electron .",
+    "docs": "jsdoc -c jsdoc.json"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "electron": "^13.1.7"
+  }
+}

@@ -1,0 +1,39 @@
+.loading {
+    position: absolute;
+    width: 90%;
+    left:7%;
+    height: 100%;
+    background-color: var(--first);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 7000 !important;
+    opacity: 0.8;
+    color:white;
+}
+.loading img {
+    animation: loading-spin infinite 1.3s linear;
+}
+.loading h5 {
+    margin-top: 20px;
+}
+@keyframes loading-spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    10% {
+        -webkit-transform: rotate(60deg);
+    }
+    20% {
+        -webkit-transform: rotate(120deg);
+    }
+    40% {
+        -webkit-transform: rotate(240deg);
+    }
+    70% {
+        -webkit-transform: rotate(360deg);
+    }
+    100% {
+        -webkit-transform: rotate(720deg);
+    }
+}

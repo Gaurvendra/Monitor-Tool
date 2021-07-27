@@ -1,0 +1,18 @@
+.sidebar-container {
+  overflow: hidden;
+  overflow-y: hidden;
+  width: 80px;
+  padding-top: 0px;
+  background-color: var(--first);
+  padding-right: 10px;
+}
+
+.sidebar-container > div > img {
+  width: 120%;
+  margin-left: -10px;
+}
+
+.twitter-inside:hover,
+.discord:hover {
+  -webkit-text-fill-color: #fff;
+}

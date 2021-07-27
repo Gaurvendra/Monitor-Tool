@@ -1,0 +1,51 @@
+.btn-blue {
+  width: 20rem;
+  border-radius: 4px;
+  height: 38px;
+  color: #e4dddb;
+  background-color: #2b4591!important;
+  margin-left: 17px;
+  padding: 4px;
+  margin-top: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.webhook-list-container {
+  width: 90%;
+  display: flex;
+  height: 19rem;
+  margin-top: 18px;
+  background-color: var(--second);
+  border-radius: 7%;
+  justify-content: space-around;
+}
+.row-webhook {
+  margin-left: 80px;
+  display: flex;
+  margin-top: 20px;
+}
+
+.test-container {
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
+  margin-top: 27px;
+}
+
+.btn-webhook {
+  border-radius: 5px;
+  background-color: #2b4591!important;
+  font-size: 12px;
+  margin-bottom: 10px;
+  height: 35px;
+  width: 100px;
+}
+
+#test {
+  background-color: grey;
+  color: #fff;
+}
+#download {
+  background-color: #1e3799;
+  color: #fff;
+}
